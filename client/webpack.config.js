@@ -28,6 +28,7 @@ module.exports = () => {
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
+      // create manifest.json
       new WebpackPwaManifest({
         fingerprints: false,
         name: 'Text Editor',
@@ -48,7 +49,29 @@ module.exports = () => {
     ],
 
     module: {
-      rules: [],
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          //Load Babel to use ES6
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: [
+                // /Compile object rest and spread to ES5
+                '@babel/plugin-proposal-object-rest-spread',
+                //all of the babel helpers will reference the module @babel/runtime instead of being attached to each file to avoid duplication across compiled output
+                '@babel/transform-runtime',
+              ],
+            },
+          },
+        },
+      ],
     },
   };
 };

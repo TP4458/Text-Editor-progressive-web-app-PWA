@@ -27,7 +27,7 @@ warmStrategyCache({
 // Check to see if the request is a navigation to a new page
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// TODO: Implement asset caching
+// Implemented asset caching
 registerRoute(
   // Check to see if the request's destination is style for stylesheets, script for JavaScript, or worker for web worker
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),

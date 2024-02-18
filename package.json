@@ -1,11 +1,10 @@
 {
-  "name": "JATE",
+  "name": "jate",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start:dev": "concurrently \"cd client && npm run build\" \"cd server && npm run server\"",
-    "start": "npmm run build && cd server && node server.js",
+    "start": "npm run build && cd server && node server.js",
     "server": "cd server server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -27,5 +26,6 @@
     "webpack": "^5.90.2",
     "webpack-dev-server": "^5.0.2",
     "webpack-pwa-manifest": "^4.3.0"
-  }
+  },
+  "description": ""
 }

@@ -80,6 +80,10 @@ h1 {
   margin: 25px;
 }
 
+.btn.hidden {
+  display: none;
+}
+
 .btn {
   text-align: center;
   display: inline-block;
